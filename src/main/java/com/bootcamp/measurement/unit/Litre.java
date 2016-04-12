@@ -1,9 +1,6 @@
 package com.bootcamp.measurement.unit;
 
-/**
- * Created by kausalyamani on 12/04/16.
- */
-public class Litre extends Volume{
+public class Litre extends Volume {
 
     public Litre(float litreValue) {
 

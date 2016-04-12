@@ -8,18 +8,20 @@ public class VolumeTest {
 
     @Test
     public void testValidEquivalence() throws Exception {
-        Volume litre = new Litre(2);
-        Volume milliLitre = new MilliLitre(2000);
+        Unit litre = new Litre(2);
+        Unit milliLitre = new MilliLitre(2000);
 
         assertTrue(litre.equals(milliLitre));
     }
 
     @Test
     public void testInValidEquivalence() throws Exception {
-        Volume litre = new Litre(200);
-        Volume milliLitre = new MilliLitre(200);
+        Unit litre = new Litre(200);
+        Unit milliLitre = new MilliLitre(200);
+        Unit centiMetre = new Centimetre(200);
 
         assertFalse(litre.equals(milliLitre));
+        assertFalse(litre.equals(centiMetre));
     }
 
     @Test
@@ -37,8 +39,8 @@ public class VolumeTest {
 
     @Test
     public void testSumOfCentiMeterAndMetreAsmilliLitreIsCorrect() throws Exception {
-        MilliLitre milliLitre = new MilliLitre(200);
-        Litre litre = new Litre(20);
+        Volume milliLitre = new MilliLitre(200);
+        Volume litre = new Litre(20);
         float expectedValue = 20200.0f;
         float incorrectValue = 22.0f;
 
@@ -63,8 +65,8 @@ public class VolumeTest {
 
     @Test
     public void testSumOfLitres() throws Exception {
-        Volume firstLitre = new Litre(2);
-        Volume secondLitre = new Litre(1);
+        Litre firstLitre = new Litre(2);
+        Litre secondLitre = new Litre(1);
         float expectedValue = 3.0f;
         float incorrectValue = 3000.0f;
 

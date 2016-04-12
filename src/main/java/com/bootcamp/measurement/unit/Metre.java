@@ -6,6 +6,7 @@ public class Metre extends Length {
         super(value, 1000.0f);
     }
 
+    @Override
     public Metre clone(float value) {
         return new Metre(value);
     }

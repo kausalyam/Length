@@ -6,6 +6,7 @@ public class Centimetre extends Length {
         super(centiMetreValue, 10.0f);
     }
 
+    @Override
     public Centimetre clone(float value) {
         return new Centimetre(value);
     }

@@ -1,44 +1,26 @@
 package com.bootcamp.measurement.unit;
 
-public class Length {
-
-    public float getValue() {
-        return value;
-    }
-
-    private float value;
-
-    public float getConversionFactorForMillimetre() {
-        return conversionFactorForMillimetre;
-    }
-
-    private float conversionFactorForMillimetre;
+public class Length extends Unit{
 
     public Length(float value, float conversionFactor){
-        this.value = value;
-        conversionFactorForMillimetre = conversionFactor;
+        super(value, conversionFactor);
     }
 
     protected Length clone(float value) {
-        return new Length(value, this.conversionFactorForMillimetre);
-    }
-
-    private float convertToMilliMetres() {
-        return this.value * this.conversionFactorForMillimetre;
-    }
-
-    private float convertMilliMetreToOriginalUnit(float milliMetreValue) {
-        return milliMetreValue / this.conversionFactorForMillimetre;
+        return new Length(value, this.getConversionFactorForMillis());
     }
 
     @Override
     public boolean equals(Object obj) {
-        return this.convertToMilliMetres() == ((Length) obj).convertToMilliMetres();
+
+        if(this == obj) return true;
+
+        return ((obj instanceof Length) && this.convertToMillis() == ((Length) obj).convertToMillis());
     }
 
-    public Length add(Length length) {
-        float sumValueAsMillimetre = this.convertToMilliMetres() + length.convertToMilliMetres();
-        float sumValueAsOriginalUnit = this.convertMilliMetreToOriginalUnit(sumValueAsMillimetre);
+    public Length add(Length unit) {
+        float sumValueAsMillimetre = this.convertToMillis() + unit.convertToMillis();
+        float sumValueAsOriginalUnit = this.convertMillisToOriginalUnit(sumValueAsMillimetre);
         return this.clone(sumValueAsOriginalUnit);
     }
 }
