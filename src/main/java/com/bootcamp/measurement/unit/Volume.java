@@ -6,6 +6,7 @@ public class Volume extends Unit{
         super(value, conversionFactor);
     }
 
+    @Override
     protected Volume clone(float value) {
         return new Volume(value, this.getConversionFactorForMillis());
     }

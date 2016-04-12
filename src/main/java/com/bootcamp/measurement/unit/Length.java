@@ -6,6 +6,7 @@ public class Length extends Unit{
         super(value, conversionFactor);
     }
 
+    @Override
     protected Length clone(float value) {
         return new Length(value, this.getConversionFactorForMillis());
     }
